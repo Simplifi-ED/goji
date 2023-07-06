@@ -19,7 +19,7 @@ func init() {
 }
 
 func main() {
-	version := "0.0.1"
+	version := "0.0.1-rc3"
 	helpFlag := flag.Bool("help", false, "Display help information")
 	versionFlag := flag.Bool("version", false, "Display version information")
 	initFlag := flag.Bool("init", false, "Generate a configuration file")
@@ -97,16 +97,15 @@ type initConfig struct {
 
 func AddCustomCommitTypes(gitmojis []Gitmoji) []Gitmoji {
 	customGitmojis := []Gitmoji{
+		{Emoji: "📚", Code: ":books:", Description: "Documentation change.", Name: "docs"},
 		{Emoji: "✨", Code: ":sparkles:", Description: "Introduce new features.", Name: "feature"},
 		{Emoji: "🐛", Code: ":bug:", Description: "Fix a bug.", Name: "fix"},
-		{Emoji: "📚", Code: ":books:", Description: "Documentation change.", Name: "docs"},
-		{Emoji: "🎨", Code: ":art:", Description: "Improve structure/format of the code.", Name: "refactor"},
-		{Emoji: "⚡️", Code: ":zap:", Description: "Improve performance.", Name: "perf"},
 		{Emoji: "🚑️", Code: ":ambulance:", Description: "Critical hotfix.", Name: "hotfix"},
-		{Emoji: "🚧", Code: ":construction:", Description: "Work in progress.", Name: "wip"},
 		{Emoji: "📦", Code: ":package:", Description: "Add or update compiled files or packages.", Name: "package"},
+		{Emoji: "⚡️", Code: ":zap:", Description: "Improve performance.", Name: "perf"},
+		{Emoji: "🎨", Code: ":art:", Description: "Improve structure/format of the code.", Name: "refactor"},
+		{Emoji: "🚧", Code: ":construction:", Description: "Work in progress.", Name: "wip"},
 	}
-
 	return append(gitmojis, customGitmojis...)
 }
 
